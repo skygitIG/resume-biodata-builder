@@ -1,0 +1,7 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResumeBuilder from '../components/ResumeBuilder';
+---
+<Layout title="Resume Builder — ResuBio" description="Build a professional resume for free. Fill in your details and download as PDF instantly.">
+  <ResumeBuilder client:only="react" />
+</Layout>

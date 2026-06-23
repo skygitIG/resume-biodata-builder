@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Create a professional resume or marriage biodata for free — no sign-up needed.' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-gray-50 font-sans">
+    <nav class="bg-white border-b border-gray-200 shadow-sm print:hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href={base} class="text-xl font-bold text-indigo-600 tracking-tight">ResuBio</a>
+        <div class="flex items-center gap-6">
+          <a href={`${base}resume`} class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Resume Builder</a>
+          <a href={`${base}biodata`} class="text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors">Biodata Maker</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-16 py-8 text-center text-gray-400 text-sm print:hidden">
+      <p>
+        ResuBio — Free Resume &amp; Biodata Builder &nbsp;·&nbsp;
+        <a href="https://github.com/skygitig/resume-biodata-builder" target="_blank" class="hover:text-indigo-500 transition-colors">GitHub</a>
+      </p>
+    </footer>
+  </body>
+</html>
