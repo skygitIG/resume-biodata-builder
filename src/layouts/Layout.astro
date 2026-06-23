@@ -3,7 +3,7 @@ interface Props {
   title: string;
   description?: string;
 }
-const { title, description = 'Create a professional resume or marriage biodata for free — no sign-up needed.' } = Astro.props;
+const { title, description = 'Build a professional resume for free in minutes — no sign-up, no watermark, download as PDF.' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 <!doctype html>
@@ -18,11 +18,13 @@ const base = import.meta.env.BASE_URL;
   <body class="min-h-screen bg-gray-50 font-sans">
     <nav class="bg-white border-b border-gray-200 shadow-sm print:hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href={base} class="text-xl font-bold text-indigo-600 tracking-tight">ResuBio</a>
-        <div class="flex items-center gap-6">
-          <a href={`${base}resume`} class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Resume Builder</a>
-          <a href={`${base}biodata`} class="text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors">Biodata Maker</a>
-        </div>
+        <a href={base} class="flex items-center">
+          <img src={`${base}logo.svg`} alt="QuickResume" class="h-8 w-auto" />
+        </a>
+        <a href={`${base}resume`}
+          class="bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
+          Build Resume
+        </a>
       </div>
     </nav>
 
@@ -30,11 +32,15 @@ const base = import.meta.env.BASE_URL;
       <slot />
     </main>
 
-    <footer class="bg-white border-t border-gray-200 mt-16 py-8 text-center text-gray-400 text-sm print:hidden">
-      <p>
-        ResuBio — Free Resume &amp; Biodata Builder &nbsp;·&nbsp;
-        <a href="https://github.com/skygitig/resume-biodata-builder" target="_blank" class="hover:text-indigo-500 transition-colors">GitHub</a>
-      </p>
+    <footer class="bg-white border-t border-gray-200 mt-16 py-10 print:hidden">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <img src={`${base}logo.svg`} alt="QuickResume" class="h-7 w-auto" />
+        <p class="text-gray-400 text-sm">© 2025 QuickResume — Free forever. No sign-up needed.</p>
+        <a href="https://github.com/skygitig/resume-biodata-builder" target="_blank"
+          class="text-gray-400 hover:text-indigo-500 text-sm transition-colors">
+          GitHub ↗
+        </a>
+      </div>
     </footer>
   </body>
 </html>

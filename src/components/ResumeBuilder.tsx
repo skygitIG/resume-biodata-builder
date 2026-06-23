@@ -63,7 +63,7 @@ export default function ResumeBuilder() {
       {/* Builder UI */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Resume Builder</h1>
+          <h1 className="text-2xl font-bold text-gray-900">QuickResume Builder</h1>
           <p className="text-sm text-gray-500 mt-1">Fill in your details on the left — the preview updates live on the right.</p>
         </div>
 
